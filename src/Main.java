@@ -19,6 +19,28 @@ class Book{
     }
 }
 
+class Car{
+    private String brand;
+    private int speed;
+    public Car(String brand, int speed){
+        this.brand = brand;
+        this.speed = speed;
+    }
+    public void accelerate(int increase){
+        this.speed += increase;
+    }
+    public void brake(int decrease){
+        this.speed -= decrease;
+        if (this.speed < 0){
+            this.speed = 0;
+        }
+    }
+    public void displayInfo(){
+        System.out.println("Brand: "+this.brand+", Speed: "+this.speed);
+
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
 //        System.out.println("Hello, World!");
@@ -26,5 +48,9 @@ public class Main {
         Book book2 = new Book("A shit book", "piggypiggyyoinkyoink", 0.01);
         System.out.println("Book 1:" + book1.get_title()+ " " + book1.get_author() + " " + book1.get_price());
         System.out.println("Book 2:" + book2.get_title()+ " " + book2.get_author() + " " + book2.get_price());
+        Car vroom_vroom = new Car("Nissan Micra", 5);
+        vroom_vroom.accelerate(2);
+        vroom_vroom.brake(6);
+        vroom_vroom.displayInfo();
     }
 }
