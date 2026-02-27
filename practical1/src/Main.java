@@ -59,6 +59,35 @@ class Student{
     }
 }
 
+class BankAccount{
+    private String name;
+    private double balance;
+    public BankAccount(String name, double balance){
+        if (balance < 0){
+            balance = 0;
+        }
+        this.balance = balance;
+        this.name = name;
+    }
+    public BankAccount(String name){
+        this.name = name;
+        this.balance = 0.0;
+    }
+    public void deposit(double amount){
+        this.balance += amount;
+    }
+    public void withdraw(double amount){
+        if (amount > this.balance){
+            return;
+        } else{
+            this.balance -= amount;
+        }
+    }
+    public double getBalance(){
+        return this.balance;
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
         // Exercise 1
@@ -76,5 +105,12 @@ public class Main {
         Student bamfred = new Student("Bamfred", 21);
         reginald.displayInfo();
         bamfred.displayInfo();
+        // bonus
+        BankAccount money = new BankAccount("jonathan", 500);
+        money.deposit(67);
+        money.withdraw(100);
+        money.withdraw(1000);
+        double balance = money.getBalance();
+        System.out.println("Current Balance: £"+ balance);
     }
 }
