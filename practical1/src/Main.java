@@ -40,17 +40,41 @@ class Car{
 
     }
 }
+class Student{
+    private String name;
+    private int age;
+    private double grade;
+    public Student(String name, int age, double grade){
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+    public Student(String name, int age){
+        this.name = name;
+        this.age = age;
+        this.grade = 0.0;
+    }
+    public void displayInfo(){
+        System.out.println("Name: "+this.name+", Age: "+this.age+", Grade: "+this.grade);
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
-//        System.out.println("Hello, World!");
+        // Exercise 1
         Book book1 = new Book("Example Title", "Jonathan", 5.99);
         Book book2 = new Book("A shit book", "piggypiggyyoinkyoink", 0.01);
         System.out.println("Book 1:" + book1.get_title()+ " " + book1.get_author() + " " + book1.get_price());
         System.out.println("Book 2:" + book2.get_title()+ " " + book2.get_author() + " " + book2.get_price());
+        // Exercise 2
         Car vroom_vroom = new Car("Nissan Micra", 5);
         vroom_vroom.accelerate(2);
         vroom_vroom.brake(6);
         vroom_vroom.displayInfo();
+        // Exercise 3
+        Student reginald = new Student("Reginald", 19, 67);
+        Student bamfred = new Student("Bamfred", 21);
+        reginald.displayInfo();
+        bamfred.displayInfo();
     }
 }
